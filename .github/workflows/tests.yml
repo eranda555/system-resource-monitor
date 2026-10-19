@@ -2,7 +2,7 @@ name : System Monitor Tests
 on:
     push:
         branches: [ main ]
-job:
+jobs:
     test:
         runs-on: ubuntu-latest
         steps:
