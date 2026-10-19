@@ -3,7 +3,11 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-LIMIT = 80
+THRESHOLD = {
+      "CPU": 80,
+      "RAM": 85,
+      "DISK": 90
+}
 INTERVAL = 5
 LOG_FILE = Path("logs/system_monitor.log")
 
@@ -12,7 +16,8 @@ LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 #resussable warning
 def check_warnings(resourse_name,ussage):
-    if ussage > LIMIT:
+    threshold = THRESHOLD[resourse_name]
+    if ussage > threshold:
         return f"WARNING : {resourse_name} USAGE HIGH"
     return None
 
@@ -80,13 +85,14 @@ def system_monitor():
  print(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
 
 
-try:
-   print("system monitor stared!!! press ctr+c to stop")
+if __name__ == "__main__":
+   try:
+      print("system monitor stared!!! press ctr+c to stop")
 
-   while True:
-      system_monitor()
-      time.sleep(INTERVAL)
+      while True:
+         system_monitor()
+         time.sleep(INTERVAL)
 
-except KeyboardInterrupt:
-   print("\n Monitor stop by user.")
+   except KeyboardInterrupt:
+      print("\n Monitor stop by user.")
 
