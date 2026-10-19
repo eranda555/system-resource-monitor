@@ -1,3 +1,5 @@
+#verify the system resource usage and log the result in a file
+
 import psutil
 import time
 from datetime import datetime
