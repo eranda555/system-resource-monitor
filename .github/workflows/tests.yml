@@ -1,7 +1,7 @@
 name : System Monitor Tests
 on:
     push:
-        branches: [ main ]
+        branches: [ main, test/ci-failure ]
 jobs:
     test:
         runs-on: ubuntu-latest
