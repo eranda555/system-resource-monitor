@@ -3,7 +3,7 @@ from main import check_warnings
 def test_ram_warning():
     result = check_warnings("RAM",87)
 
-    assert result == "WARNING : RAM USAGE HIGH!!"
+    assert result == "WARNING : RAM USAGE HIGH"
 
 def test_cpu_warning():
     result = check_warnings("CPU",82)
