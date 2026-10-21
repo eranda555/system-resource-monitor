@@ -10,3 +10,6 @@ logs/*.log
 
 # Environment variables and secrets
 .env
+
+# Ignore test.py file
+/test.py
